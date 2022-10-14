@@ -1,0 +1,44 @@
+.topBar{
+    background-color: #eedfcc;
+    height: 37px;
+}
+
+/* .rightButtons{
+    float: right;
+} */
+
+.exportButton{
+    background-color: #a69c8e;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+}
+
+.addButton{
+    background-color: #a69c8e;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    float: right;
+}
+
+.remButton{
+    background-color: #a69c8e;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+    float: right;
+}
+
+.exportButton:hover,
+.addButton:hover,
+.remButton:hover{
+    cursor: pointer;
+    background-color: #3e8e41;
+}
+
+.exportButton:active,
+.addButton:active,
+.remButton:active{
+    background-color: #5c8e60;
+}
