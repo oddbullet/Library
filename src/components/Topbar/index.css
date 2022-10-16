@@ -14,11 +14,31 @@
     padding: 10px;
 }
 
+.importButton{
+    background-color: #a69c8e;
+    font-size: 15px;
+    border: none;
+    padding: 10px;
+}
+
+
+.inputBox{
+    border: none;
+    font-size: 15px;
+    margin-block-start: 10px;
+    margin-inline-start: 15px;
+    margin-inline-end: 15px;
+}
+
 .addButton{
     background-color: #a69c8e;
     font-size: 15px;
     border: none;
     padding: 10px;
+}
+
+.addButton,
+.inputBox{
     float: right;
 }
 
@@ -31,6 +51,7 @@
 }
 
 .exportButton:hover,
+.importButton:hover,
 .addButton:hover,
 .remButton:hover{
     cursor: pointer;
@@ -38,6 +59,7 @@
 }
 
 .exportButton:active,
+.importButton:active,
 .addButton:active,
 .remButton:active{
     background-color: #5c8e60;
