@@ -1,12 +1,13 @@
 import './index.css';
 
 const Display = (props) => {
-    const data = props.data;
+    const books = props.books;
+    console.log(books)
     
     try{
-        const strAscending = [...data].sort((a,b) => a.title > b.title ? 1:-1,);
+        const strAscending = [...books].sort((a,b) => a.title > b.title ? 1:-1,);
         // console.log(strAscending)
-        
+
         return (
             <table>
                 <tbody>

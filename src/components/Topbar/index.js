@@ -4,14 +4,10 @@ import React, {useState} from 'react';
 
 const Topbar = () => {
 
-    const [title, setTitle] = useState([""]);
-    const [page, setPage] = useState([""]);
-    const [des, setDes] = useState([""]);
-    const [list, setList] = useState([{
-        title:"",
-        page:"",
-        des:""
-    }]);
+    const [title, setTitle] = useState("");
+    const [page, setPage] = useState("");
+    const [des, setDes] = useState("");
+    const [list, setList] = useState([]);
 
     function exportClick(){
         console.log("test");
@@ -27,15 +23,16 @@ const Topbar = () => {
             alert("Fill in all boxes.");
         } else {
             try{
-                setList((...list) => [...title, ...page, ...des,{
+                setList((oldList) => [...oldList, {
                     title: title,
                     page: page,
                     des: des
                 }]);
+
                 setTitle("");
                 setPage("");
                 setDes("");
-                console.log(list.toString)
+                // console.log(list.toString)
             } catch (err){
                 console.log(err)
             }
@@ -65,7 +62,7 @@ const Topbar = () => {
                     
                 </div>
             </div>
-            <Display data = {list}></Display>
+            <Display books = {list}></Display>
         </div>
         
         
