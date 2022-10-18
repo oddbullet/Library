@@ -2,20 +2,26 @@ import './index.css';
 
 const Display = (props) => {
     const books = props.books;
-    console.log(books)
-    
+    const handleRem = props.handleRem;
+
     try{
-        const strAscending = [...books].sort((a,b) => a.title > b.title ? 1:-1,);
-        // console.log(strAscending)
+        const strAscending = [...books].sort((a,b) => a.title.toUpperCase() > b.title.toUpperCase() ? 1:-1);
 
         return (
             <table>
                 <tbody>
+                    <tr className='tableName'>
+                        <td className='title'>Title</td>
+                        <td className='page'>Page</td>
+                        <td className='des'>Description</td>
+                    </tr>
                     {strAscending.map((book, index) => (
-                        <tr key={index}>
-                            <td>{book.title}</td>
-                            <td>{book.page}</td>
-                            <td>{book.des}</td>
+                        <tr key={index} className = "diplayRow">
+                            {/* <td>Index: {book.id}</td> */}
+                            <td className='titleCol'>{book.title}</td>
+                            <td className='pageCol'>{book.page}</td>
+                            <td className='bookCol'>{book.des}</td>
+                            <td><button className = 'remButton' onClick = {event => handleRem(book.id)}>Remove</button></td>
                         </tr>
                     ))}
                 </tbody>
@@ -25,8 +31,6 @@ const Display = (props) => {
     } catch (err){
         console.log(err);
     }
-
-    
 }
 
 export default Display
