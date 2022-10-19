@@ -11,9 +11,10 @@ const Display = (props) => {
             <table>
                 <tbody>
                     <tr className='tableName'>
-                        <td className='title'>Title</td>
-                        <td className='page'>Page</td>
-                        <td className='des'>Description</td>
+                        <th className='title'>Title</th>
+                        <th className='page'>Page</th>
+                        <th className='des'>Description</th>
+                        <th className='editButton'><button className='editButton'>Edit</button></th>
                     </tr>
                     {strAscending.map((book, index) => (
                         <tr key={index} className = "diplayRow">

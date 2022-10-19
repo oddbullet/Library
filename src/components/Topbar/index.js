@@ -10,6 +10,11 @@ const Topbar = () => {
     const [id, setId] = useState(1);
     const [list, setList] = useState([]);
 
+    // let displayState = true;
+    // function handleEdit(state) {
+    //     displayState = state;
+    // }
+
     function handleRem(id) {
         let pos = 0;
         //Find the position of the thing I want to remove.
@@ -73,7 +78,6 @@ const Topbar = () => {
                     <input className = 'inputBox' type = "text" placeholder='Description' value = {des} onChange={(text) => setDes(text.target.value)}/>
                     <input className = 'inputBox' type = "number" placeholder='Page' value = {page} onChange={(text) => setPage(text.target.value)}/>
                     <input className = 'inputBox' type = "text" placeholder='Title' value = {title} onChange={(text) => setTitle(text.target.value)}/>
-                    
                 </div>
             </div>
             <Display books={list} handleRem={handleRem}></Display>

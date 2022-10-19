@@ -1,0 +1,34 @@
+table{
+    width: 100%;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.title, .page{
+    width: 20%;
+    border: 1px solid;
+}
+
+.des{
+    width: 60%;
+    border: 1px solid;
+}
+
+td{
+    border: 1px solid;
+}
+
+.editButton{
+    background-color: #a69c8e;
+    font-size: 15px;
+    border: none;
+}
+
+.editButton:hover{
+    cursor: pointer;
+    background-color: #3e8e41;
+}
+
+.editButton:active{
+    background-color: #5c8e60;
+}
