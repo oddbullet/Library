@@ -18,8 +18,14 @@ td{
     border: 1px solid;
 }
 
+.zpad{
+    padding: 0px;
+}
+
 .editButton{
     background-color: #a69c8e;
+    width: 75.8px;
+    padding: 10px;
     font-size: 15px;
     border: none;
 }

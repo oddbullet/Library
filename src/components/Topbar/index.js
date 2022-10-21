@@ -10,17 +10,34 @@ const Topbar = () => {
     const [id, setId] = useState(1);
     const [list, setList] = useState([]);
 
-    // let displayState = true;
-    // function handleEdit(state) {
-    //     displayState = state;
-    // }
+    function updateData(id, type, value) {
+
+        for(let i = 0; i < list.length; i++) {
+            if(list[i].id === id) {
+                if(type === "title") {
+                    list[i].title = value;
+                } else if (type === "page") {
+                    list[i].page = value;
+                } else{
+                    list[i].des = value;
+                }
+                setList((oldList) => [...oldList]);
+            }
+            i = list.length;
+        }
+
+    }
 
     function handleRem(id) {
         let pos = 0;
         //Find the position of the thing I want to remove.
+        //Simplify. Perphas remove pos and put the list.splice in the if block.
         for(let i = 0; i < list.length; i++){
             if(list[i].id === id) {
                 pos = i;
+
+                //Stop the loop
+                i = list.length;
             }
         }
 
@@ -80,7 +97,7 @@ const Topbar = () => {
                     <input className = 'inputBox' type = "text" placeholder='Title' value = {title} onChange={(text) => setTitle(text.target.value)}/>
                 </div>
             </div>
-            <Display books={list} handleRem={handleRem}></Display>
+            <Display books={list} handleRem={handleRem} updateData={updateData}></Display>
         </div>
         
         
