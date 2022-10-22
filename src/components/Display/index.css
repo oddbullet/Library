@@ -18,8 +18,23 @@ td{
     border: 1px solid;
 }
 
+.zpad{
+    padding: 0px;
+}
+
+.remButton{
+    background-color: #a69c8e;
+    width: 75.8px;
+    font-size: 15px;
+    border: none;
+    padding: 5px;
+    float: right;
+}
+
 .editButton{
     background-color: #a69c8e;
+    width: 75.8px;
+    padding: 5px;
     font-size: 15px;
     border: none;
 }
