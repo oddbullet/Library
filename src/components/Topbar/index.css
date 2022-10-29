@@ -3,6 +3,10 @@
     height: 37px;
 }
 
+.hidden {
+    display: none;
+}
+
 .exportButton,
 .importButton,
 .sortButton,

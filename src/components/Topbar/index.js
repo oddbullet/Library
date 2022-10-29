@@ -1,6 +1,6 @@
 import './index.css';
 import Display from '../Display/index.js';
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 
 const Topbar = () => {
 
@@ -9,12 +9,9 @@ const Topbar = () => {
     const [des, setDes] = useState("");
     const [id, setId] = useState(1);
     const [list, setList] = useState([]);
+    const fileUpload = useRef(null);
 
     function updateData(id, type, value) {
-
-        console.log("ID: " + id + " Type: " + type + " Value: " + value);
-        console.log(list)
-
         for(let i = 0; i < list.length; i++) {
             if(list[i].id === id) {
                 if(type === "title") {
@@ -52,11 +49,30 @@ const Topbar = () => {
     }
 
     function exportClick(){
-        console.log("test");
+        let output = JSON.stringify(list, null , 4);
+        const blob = new Blob([output]);
+        const fileDownloadUrl = URL.createObjectURL(blob);
+
+        let a = document.createElement('a');
+        a.href = fileDownloadUrl;
+        a.download = 'stuff.json';
+        a.click();
     }
 
-    function importClick(){
-        console.log("import");
+    function importClick(file){
+        const fileObj = file.target.files[0];
+        const reader = new FileReader();
+
+        let fileloaded = (e) => {
+            const fileContents = e.target.result;
+            const list = JSON.parse(fileContents);
+            setList(list);
+        }
+
+        // fileloaded = fileloaded.bind(this);
+        reader.onload = fileloaded;
+        reader.readAsText(fileObj);
+        console.log();
     }
 
     function sortClick(list){
@@ -89,9 +105,11 @@ const Topbar = () => {
                 console.log(err)
             }
             
-        }
+        }     
+    }
 
-        
+    function inputTest() {
+        fileUpload.current.click();
     }
 
     return (
@@ -99,10 +117,10 @@ const Topbar = () => {
             <div className = 'topBar'>
                 <div className = 'rightButtons'>
                     <button className = 'exportButton' onClick = {exportClick}>Export</button> 
-                    <button className = 'importButton' onClick = {importClick}>Import</button>
+                    <button className = 'importButton' onClick = {inputTest}>Import</button>
+                    <input ref={fileUpload} type='file' className='hidden' multiple={false} accept='.json,application/json' onChange={(file) => importClick(file)}/>
                     <button className= 'sortButton' onClick = {() => sortClick(list)}>Sort</button>
 
-                    {/* <button className = 'remButton' onClick = {removeClick}>Remove</button> */}
                     <button className = 'addButton' onClick = {addClick}>Add</button>
 
                     <input className = 'inputBox' type = "text" placeholder='Description' value = {des} onChange={(text) => setDes(text.target.value)}/>
