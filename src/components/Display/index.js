@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './index.css';
+import "animate.css";
 
 const Display = (props) => {
     const books = props.books;
@@ -10,6 +11,18 @@ const Display = (props) => {
     const [editTitle, setTitle] = useState("Hey");
     const [editPage, setPage] = useState();
     const [editDes, setDes] = useState("");
+
+    function animateTada(){
+        const node = document.getElementById('tada');
+        node.style.cssText += 'animation:tada;animation-duration: 1s';
+
+        function handleAnimationEnd(event) {
+            event.stopPropagation();
+            node.removeAttribute('style');
+        }
+
+        node.addEventListener('animationend', handleAnimationEnd, {once: true});
+    }
 
     function handleUpdate(id, title, page, des){
         updateData(id, "title", title);
@@ -59,7 +72,7 @@ const Display = (props) => {
                     <th className='title'>Title</th>
                     <th className='page'>Page</th>
                     <th className='des'>Description</th>
-                    <td className='zpad'><button className='editButton'>Tada</button></td>
+                    <td className='zpad'><button id='tada'className='tadaButton' onClick={() => animateTada()}>Tada</button></td>
                 </tr>
             </thead>
             <tbody>

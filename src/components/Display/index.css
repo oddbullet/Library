@@ -31,7 +31,8 @@ td{
     float: right;
 }
 
-.editButton{
+.editButton,
+.tadaButton{
     background-color: #a69c8e;
     width: 75.8px;
     padding: 5px;
@@ -39,11 +40,13 @@ td{
     border: none;
 }
 
-.editButton:hover{
+.editButton:hover,
+.tadaButton:hover{
     cursor: pointer;
     background-color: #3e8e41;
 }
 
-.editButton:active{
+.editButton:active,
+.tadaButton:active{
     background-color: #5c8e60;
 }

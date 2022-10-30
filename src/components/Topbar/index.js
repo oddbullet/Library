@@ -1,6 +1,7 @@
 import './index.css';
 import Display from '../Display/index.js';
 import React, {useState, useRef} from 'react';
+import 'animate.css';
 
 const Topbar = () => {
 
@@ -69,10 +70,9 @@ const Topbar = () => {
             setList(list);
         }
 
-        // fileloaded = fileloaded.bind(this);
+        //Remove?
         reader.onload = fileloaded;
         reader.readAsText(fileObj);
-        console.log();
     }
 
     function sortClick(list){
