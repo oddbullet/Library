@@ -1,7 +1,6 @@
 import './index.css';
 import Display from '../Display/index.js';
 import React, {useState, useRef} from 'react';
-import 'animate.css';
 
 const Topbar = () => {
 
@@ -58,6 +57,8 @@ const Topbar = () => {
         a.href = fileDownloadUrl;
         a.download = 'stuff.json';
         a.click();
+
+        URL.revokeObjectURL(fileDownloadUrl);
     }
 
     function importClick(file){
@@ -70,9 +71,9 @@ const Topbar = () => {
             setList(list);
         }
 
-        //Remove?
         reader.onload = fileloaded;
         reader.readAsText(fileObj);
+        
     }
 
     function sortClick(list){
@@ -118,7 +119,7 @@ const Topbar = () => {
                 <div className = 'rightButtons'>
                     <button className = 'exportButton' onClick = {exportClick}>Export</button> 
                     <button className = 'importButton' onClick = {inputTest}>Import</button>
-                    <input ref={fileUpload} type='file' className='hidden' multiple={false} accept='.json,application/json' onChange={(file) => importClick(file)}/>
+                    <input ref={fileUpload} type='file' className='hidden' multiple={false} accept='.json,application/json' onInput={(file) => importClick(file)} onChange={(event) => event.target.value = null}/>
                     <button className= 'sortButton' onClick = {() => sortClick(list)}>Sort</button>
 
                     <button className = 'addButton' onClick = {addClick}>Add</button>
